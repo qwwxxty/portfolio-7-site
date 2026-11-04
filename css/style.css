@@ -1622,8 +1622,8 @@ html:not(.js) .tabs { display: none; }
 @media (hover: hover) {
   .frame:hover .frame__mark path { stroke-dashoffset: 0; }
 }
-.frame.is-picked .frame__mark path { stroke-dashoffset: 0; transition-duration: 1.2s; }
-html:not(.js) .frame--pick .frame__mark path { stroke-dashoffset: 0; }
+/* На сенсорних екранах кадр обводиться після дотику (js/main.js) */
+.frame.is-picked .frame__mark path { stroke-dashoffset: 0; }
 
 /* ---------- Відгуки ---------- */
 

@@ -730,18 +730,17 @@
     });
   }
 
-  /* ---------- Галерея: «обвести» найкращий кадр ---------- */
+  /* ---------- Галерея: обвести кадр ----------
+     З мишкою кадр обводиться при наведенні (CSS :hover).
+     На сенсорних екранах наведення немає, тож обводимо кадр після дотику. */
   const sheet = $('[data-sheet]');
-  if (sheet && 'IntersectionObserver' in window) {
-    const so = new IntersectionObserver(([en]) => {
-      if (en.isIntersecting) {
-        setTimeout(() => $$('.frame--pick', sheet).forEach((f) => f.classList.add('is-picked')), 700);
-        so.disconnect();
-      }
-    }, { threshold: 0.35 });
-    so.observe(sheet);
-  } else if (sheet) {
-    $$('.frame--pick', sheet).forEach((f) => f.classList.add('is-picked'));
+  if (sheet && !window.matchMedia('(hover: hover)').matches) {
+    const frames = $$('.frame', sheet);
+    frames.forEach((f) => f.addEventListener('click', () => {
+      const on = !f.classList.contains('is-picked');
+      frames.forEach((x) => x.classList.remove('is-picked'));
+      f.classList.toggle('is-picked', on);
+    }));
   }
 
   /* ---------- Велике слово у футері: по літерах ---------- */
