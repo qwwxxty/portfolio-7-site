@@ -1,0 +1,786 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Окраєць — пекарня на заквасці в Сумах</title>
+  <meta name="description" content="Окраєць — пекарня на заквасці в центрі Сум. Хліб, круасани й випічка щодня з 7:00, розклад печі наживо, меню з цінами й передзамовлення.">
+  <meta name="theme-color" content="#f3ede2">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="uk_UA">
+  <meta property="og:title" content="Окраєць — пекарня на заквасці в Сумах">
+  <meta property="og:description" content="Печемо повільно, продаємо гарячим. Перший багет — щодня о 7:00.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Piazzolla:ital,wght@1,400;1,500&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Перейти до змісту</a>
+
+  <!-- Іконки -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="loaf" viewBox="0 0 40 28">
+      <path d="M2.5 25.5C2.5 13.6 10.3 3.5 20 3.5s17.5 10.1 17.5 22z" fill="currentColor"/>
+      <path d="M11.5 13.2l4.6 4.1M18 9.6l4.8 4.2M24.6 11.4l4.5 4" fill="none" stroke-width="2.6" stroke-linecap="round" style="stroke: var(--cut, #f3ede2)"/>
+    </symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 3.5h2.6l1.6 4.3-2 1.3a11.5 11.5 0 0 0 6.1 6.1l1.3-2 4.3 1.6v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z"/></symbol>
+    <symbol id="i-tg" viewBox="0 0 24 24"><path d="M20.6 4.3 3.4 11c-.8.3-.8 1.4 0 1.7l4.3 1.5 1.7 5.1c.2.7 1.1.9 1.6.4l2.5-2.4 4.5 3.3c.6.4 1.4.1 1.6-.6l2.9-13.5c.2-.9-.7-1.6-1.5-1.3z"/><path d="m8 14.2 8.6-6"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.9"/><circle cx="17.2" cy="6.8" r=".7" fill="currentColor"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5.5 8.5h13l-1 11.5h-11z"/><path d="M8.8 8.5V7a3.2 3.2 0 0 1 6.4 0v1.5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.7-6.5-11.2a6.5 6.5 0 0 1 13 0C18.5 15.3 12 21 12 21z"/><circle cx="12" cy="9.8" r="2.3"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+  </svg>
+
+  <!-- ============ Шапка ============ -->
+  <header class="hdr" data-hdr>
+    <div class="wrap hdr__in">
+      <a class="logo" href="#top" aria-label="Окраєць — на початок сторінки">
+        <svg class="logo__mark" aria-hidden="true"><use href="#loaf"/></svg>
+        <span class="logo__word">окраєць</span>
+      </a>
+
+      <nav class="nav" aria-label="Основна навігація">
+        <a href="#about">Про нас</a>
+        <a href="#oven">Піч сьогодні</a>
+        <a href="#menu">Меню</a>
+        <a href="#order">Передзамовлення</a>
+        <a href="#contacts">Контакти</a>
+      </nav>
+
+      <p class="status hdr__status" data-status>
+        <span class="status__dot" aria-hidden="true"></span>
+        <span data-status-text>Щодня 07:00–20:00</span>
+      </p>
+
+      <a class="bagbtn" href="#order" data-bagbtn aria-label="Торба, позицій: 0">
+        <svg class="ico" aria-hidden="true"><use href="#i-bag"/></svg>
+        <span class="bagbtn__n" data-bag-count aria-hidden="true">0</span>
+      </a>
+
+      <a class="btn btn--ink btn--sm hdr__call" href="tel:+380500000000">
+        <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Подзвонити
+      </a>
+
+      <button class="burger" type="button" aria-expanded="false" aria-controls="drawer" data-burger>
+        <span class="burger__l" aria-hidden="true"></span>
+        <span class="burger__l" aria-hidden="true"></span>
+        <span class="sr" data-burger-label>Відкрити меню</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Мобільне меню -->
+  <div class="drawer" id="drawer" data-drawer>
+    <nav class="drawer__nav" aria-label="Мобільна навігація">
+      <a href="#about" style="--i:0"><span class="mono">01</span>Про нас</a>
+      <a href="#oven" style="--i:1"><span class="mono">02</span>Піч сьогодні</a>
+      <a href="#menu" style="--i:2"><span class="mono">03</span>Меню</a>
+      <a href="#order" style="--i:3"><span class="mono">04</span>Передзамовлення</a>
+      <a href="#trade" style="--i:4"><span class="mono">05</span>Для закладів</a>
+      <a href="#contacts" style="--i:5"><span class="mono">06</span>Контакти</a>
+    </nav>
+    <div class="drawer__foot">
+      <p class="status status--light" data-status>
+        <span class="status__dot" aria-hidden="true"></span>
+        <span data-status-text>Щодня 07:00–20:00</span>
+      </p>
+      <div class="drawer__links">
+        <a class="btn btn--butter" href="tel:+380500000000"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Подзвонити</a>
+        <a class="btn btn--line-light" href="https://t.me/okraiets_sumy" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-tg"/></svg>Telegram</a>
+        <a class="btn btn--line-light" href="https://instagram.com/okraiets.sumy" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg>Instagram</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- ============ Перший екран ============ -->
+    <section class="hero" id="top" aria-labelledby="hero-title" data-hero>
+      <div class="wrap hero__grid">
+        <div class="hero__text">
+          <p class="hero__meta mono">
+            <span>Суми</span>
+            <span>Петропавлівська, 58</span>
+            <span>печемо з 2019</span>
+          </p>
+
+          <h1 class="hero__title" id="hero-title">
+            <span class="w"><span style="--i:0">Печемо</span></span>
+            <span class="w"><span style="--i:1">повільно,</span></span>
+            <span class="w"><span style="--i:2">продаємо</span></span>
+            <span class="hot"><span class="w"><span style="--i:3">гарячим.</span></span><svg class="scribble" viewBox="0 0 300 28" preserveAspectRatio="none" aria-hidden="true"><path d="M5 17C48 9 92 7 140 12s96 9 154-3" pathLength="1"/><path d="M38 23c58-5 120-6 214-2" pathLength="1"/></svg></span>
+          </h1>
+
+          <p class="hero__lede">Пекарня на заквасці в центрі Сум. На одну буханку йде 36 годин роботи, покращувачів у тісті немає, а перший багет виходить із печі рівно о 7:00.</p>
+
+          <div class="hero__cta">
+            <a class="btn btn--ink" href="#oven">Що зараз у печі <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn--line" href="#menu">Меню й ціни</a>
+          </div>
+
+          <ul class="reach" aria-label="Зв’язатися з нами">
+            <li><a class="reach__a" href="tel:+380500000000"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Подзвонити</a></li>
+            <li><a class="reach__a" href="https://t.me/okraiets_sumy" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-tg"/></svg>Telegram</a></li>
+            <li><a class="reach__a" href="https://instagram.com/okraiets.sumy" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg>Instagram</a></li>
+          </ul>
+        </div>
+
+        <div class="hero__visual">
+          <figure class="ph hero__ph" style="--r: 4 / 5">
+            <!-- Заміна: <img src="img/hero.jpg" alt="Полиця з ранковим хлібом" width="1200" height="1500"> -->
+            <figcaption class="ph__cap">фото 4:5 · полиця з ранковим хлібом</figcaption>
+          </figure>
+
+          <div class="stamp" aria-hidden="true">
+            <svg class="stamp__ring" viewBox="0 0 120 120">
+              <defs><path id="stamp-c" d="M60 60m-45 0a45 45 0 1 1 90 0a45 45 0 1 1-90 0"/></defs>
+              <circle cx="60" cy="60" r="58" class="stamp__bg"/>
+              <text><textPath href="#stamp-c" startOffset="0">свіже щодня · з 7:00 · суми · закваска ·</textPath></text>
+            </svg>
+            <svg class="stamp__loaf"><use href="#loaf"/></svg>
+          </div>
+
+          <aside class="ticket" data-ticket aria-label="Що зараз у печі">
+            <p class="ticket__label mono" data-ticket-label>Розклад печі</p>
+            <p class="ticket__name" data-ticket-name>Перший багет — о 07:00</p>
+            <div class="ticket__bar" aria-hidden="true"><span data-ticket-bar></span></div>
+            <p class="ticket__meta mono" data-ticket-meta>далі партії щогодини до 17:00</p>
+            <svg class="ticket__steam" viewBox="0 0 40 30" aria-hidden="true"><path d="M8 28c-4-5 4-8 0-13s4-8 0-13" pathLength="1"/><path d="M20 28c-4-5 4-8 0-13s4-8 0-13" pathLength="1"/><path d="M32 28c-4-5 4-8 0-13s4-8 0-13" pathLength="1"/></svg>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Біжучий рядок -->
+    <div class="band-wrap" aria-hidden="true">
+      <div class="band">
+        <div class="band__track" data-marquee>
+          <span class="band__item">житній на заквасці<svg><use href="#loaf"/></svg></span>
+          <span class="band__item">багет о сьомій<svg><use href="#loaf"/></svg></span>
+          <span class="band__item">круасан на 27 шарів<svg><use href="#loaf"/></svg></span>
+          <span class="band__item">фокача з розмарином<svg><use href="#loaf"/></svg></span>
+          <span class="band__item">медівник<svg><use href="#loaf"/></svg></span>
+          <span class="band__item">узвар без цукру<svg><use href="#loaf"/></svg></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ Про нас ============ -->
+    <section class="sec about" id="about" aria-labelledby="about-title">
+      <div class="wrap">
+        <p class="kicker" data-reveal>Про нас</p>
+        <h2 id="about-title" data-reveal>Маленька пекарня<br> з великою піччю</h2>
+
+        <div class="about__grid">
+          <div class="about__copy" data-reveal>
+            <p class="about__big">Ми відкрилися у 2019-му в колишній майстерні годинникаря. Від нього нам лишились <mark>вивіска з циферблатом</mark> і звичка робити все <mark>вчасно</mark>.</p>
+            <p>Печемо тільки на заквасці й тільки з українського борошна: пшеницю й жито беремо в невеликого млина під Ромнами. Ніяких покращувачів і заморожених заготовок, а вчорашнього хліба на полиці не буває: усе, що лишилось увечері, забирають волонтери.</p>
+            <p>У нас тісно, пахне скоринкою, і на підлозі завжди трохи борошна. Заходьте, навіть якщо просто погрітись.</p>
+          </div>
+
+          <figure class="ph about__ph1" style="--r: 3 / 4" data-reveal="clip">
+            <!-- Заміна: <img src="img/about-bakers.jpg" alt="Пекарі формують тісто" loading="lazy"> -->
+            <figcaption class="ph__cap">фото 3:4 · пекарі формують тісто</figcaption>
+          </figure>
+          <figure class="ph about__ph2" style="--r: 1 / 1" data-reveal="clip">
+            <!-- Заміна: <img src="img/about-sign.jpg" alt="Стара вивіска з годинником над входом" loading="lazy"> -->
+            <figcaption class="ph__cap">фото 1:1 · вивіска з годинником</figcaption>
+          </figure>
+        </div>
+
+        <dl class="facts" data-stagger>
+          <div class="fact" data-reveal><dt>годин від закваски до печі</dt><dd><span data-count="36">36</span></dd></div>
+          <div class="fact" data-reveal><dt>покращувачів і консервантів</dt><dd>0</dd></div>
+          <div class="fact" data-reveal><dt>буханок за звичайний день</dt><dd><small>≈</small><span data-count="280">280</span></dd></div>
+          <div class="fact" data-reveal><dt>перший багет, щодня</dt><dd>7:00</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ Процес ============ -->
+    <section class="sec process" id="process" aria-labelledby="process-title">
+      <div class="wrap">
+        <div class="split-head">
+          <h2 id="process-title" data-reveal>36 годин<br> однієї буханки</h2>
+          <p data-reveal>Хліб на заквасці не любить поспіху. Ось що з ним відбувається, поки ви спите.</p>
+        </div>
+
+        <ol class="steps" data-steps>
+          <li class="step">
+            <p class="step__h mono">0 год</p>
+            <h3>Годуємо закваску</h3>
+            <p>Нашій заквасці сім років, і звуть її Галя. Годуємо житнім борошном і водою, а вона віддячує кислинкою й підйомом.</p>
+          </li>
+          <li class="step">
+            <p class="step__h mono">12 год</p>
+            <h3>Замішуємо</h3>
+            <p>Борошно, вода, сіль і Галя, більше нічого. Місимо повільно, щоб тісто не перегрілось.</p>
+          </li>
+          <li class="step">
+            <p class="step__h mono">14–32 год</p>
+            <h3>Холодний сон</h3>
+            <p>Тісто відпочиває в камері при +4 °C. Саме тоді з’являються смак, великі дірки й хрумка скоринка.</p>
+          </li>
+          <li class="step">
+            <p class="step__h mono">34 год</p>
+            <h3>Формуємо й надрізаємо</h3>
+            <p>Кожну буханку формуємо руками й надрізаємо лезом. Візерунок на скоринці — це наш підпис.</p>
+          </li>
+          <li class="step">
+            <p class="step__h mono">36 год</p>
+            <h3>Піч, 250 °C</h3>
+            <p>Кам’яний під і пара в перші п’ятнадцять хвилин. Потім хліб їде на полицю, а звідти у вашу торбу.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ Розклад печі ============ -->
+    <section class="sec oven" id="oven" aria-labelledby="oven-title">
+      <div class="wrap oven__grid">
+        <div class="oven__side">
+          <p class="kicker" data-reveal>Піч сьогодні</p>
+          <h2 id="oven-title" data-reveal>Розклад<br> печі</h2>
+          <p class="oven__text" data-reveal>Печемо партіями цілий день, тож гарячий хліб буває не лише зранку. Табло живе за київським часом.</p>
+
+          <div class="flip" data-clock role="img" aria-label="Київський час">
+            <span class="flip__d">0</span><span class="flip__d">7</span><span class="flip__sep">:</span><span class="flip__d">0</span><span class="flip__d">0</span>
+          </div>
+          <p class="oven__note mono" data-oven-note>Київський час</p>
+        </div>
+
+        <div class="board-wrap" data-reveal>
+          <table class="board">
+            <caption class="sr">Коли хліб виходить із печі</caption>
+            <thead>
+              <tr><th scope="col">Час</th><th scope="col">Що виходить</th><th scope="col">Статус</th></tr>
+            </thead>
+            <tbody data-board>
+              <tr data-t="07:00"><td class="board__t">07:00</td><td class="board__n">Багет класичний</td><td><span class="st" data-st>за розкладом</span></td></tr>
+              <tr data-t="07:40"><td class="board__t">07:40</td><td class="board__n">Круасани вершкові</td><td><span class="st" data-st>за розкладом</span></td></tr>
+              <tr data-t="08:30"><td class="board__t">08:30</td><td class="board__n">Пшеничний сільський</td><td><span class="st" data-st>за розкладом</span></td></tr>
+              <tr data-t="09:20"><td class="board__t">09:20</td><td class="board__n">Житній на заквасці</td><td><span class="st" data-st>за розкладом</span></td></tr>
+              <tr data-t="10:30"><td class="board__t">10:30</td><td class="board__n">Фокача з розмарином</td><td><span class="st" data-st>за розкладом</span></td></tr>
+              <tr data-t="12:00"><td class="board__t">12:00</td><td class="board__n">Слойки з бринзою</td><td><span class="st" data-st>за розкладом</span></td></tr>
+              <tr data-t="13:30"><td class="board__t">13:30</td><td class="board__n">Булочки з корицею</td><td><span class="st" data-st>за розкладом</span></td></tr>
+              <tr data-t="15:00"><td class="board__t">15:00</td><td class="board__n">Цільнозерновий з насінням</td><td><span class="st" data-st>за розкладом</span></td></tr>
+              <tr data-t="16:20"><td class="board__t">16:20</td><td class="board__n">Бріош із ваніллю</td><td><span class="st" data-st>за розкладом</span></td></tr>
+              <tr data-t="17:00"><td class="board__t">17:00</td><td class="board__n">Вечірній багет</td><td><span class="st" data-st>за розкладом</span></td></tr>
+            </tbody>
+          </table>
+          <p class="board__foot">Популярне розбирають швидко. Хочете напевно — <a href="#order">відкладіть заздалегідь</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Меню ============ -->
+    <section class="sec menu" id="menu" aria-labelledby="menu-title">
+      <div class="wrap">
+        <div class="split-head">
+          <h2 id="menu-title" data-reveal>Меню</h2>
+          <p data-reveal>Ціни в гривнях. Хліб і випічку можна відкласти: тисніть «+», і позиція потрапить у торбу.</p>
+        </div>
+
+        <article class="special" data-reveal aria-labelledby="special-title">
+          <figure class="ph special__ph" style="--r: 1 / 1">
+            <!-- Заміна: <img src="img/special.jpg" alt="Гречаний хліб у розрізі" loading="lazy"> -->
+            <figcaption class="ph__cap">фото 1:1 · гречаний хліб у розрізі</figcaption>
+          </figure>
+          <div class="special__body">
+            <p class="special__tag mono">Хліб тижня</p>
+            <h3 id="special-title">Гречаний з липовим медом</h3>
+            <p>Гречка з Сумщини, липовий мед від пасічника з Тростянця і трохи жита для характеру. Печемо до неділі, потім буде інший.</p>
+            <div class="special__foot">
+              <p class="special__price">96 <small>грн</small></p>
+              <p class="mono">650 г</p>
+              <button class="btn btn--ink btn--sm" type="button" data-add data-id="buckwheat" data-name="Гречаний з медом" data-price="96">
+                <svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg>У торбу
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <div class="tabs" role="tablist" aria-label="Розділи меню" data-tabs>
+          <button class="tab" type="button" role="tab" id="tab-bread" aria-controls="panel-bread" aria-selected="true">Хліб <sup>7</sup></button>
+          <button class="tab" type="button" role="tab" id="tab-pastry" aria-controls="panel-pastry" aria-selected="false" tabindex="-1">Випічка <sup>6</sup></button>
+          <button class="tab" type="button" role="tab" id="tab-sweet" aria-controls="panel-sweet" aria-selected="false" tabindex="-1">До чаю <sup>5</sup></button>
+          <button class="tab" type="button" role="tab" id="tab-drinks" aria-controls="panel-drinks" aria-selected="false" tabindex="-1">Кава й напої <sup>7</sup></button>
+          <span class="tabs__ink" aria-hidden="true" data-tabs-ink></span>
+        </div>
+
+        <div class="panel is-active" id="panel-bread" role="tabpanel" aria-labelledby="tab-bread" tabindex="0">
+          <h3 class="panel__title">Хліб</h3>
+          <ul class="items">
+            <li class="item">
+              <div class="item__top"><h4 class="item__name">Житній на заквасці</h4><span class="item__dots" aria-hidden="true"></span><p class="item__price">85 <small>грн</small></p></div>
+              <p class="item__desc"><span class="item__w">700 г</span>100% жито й коріандр. Щільний, вологий, тримається цілий тиждень.</p>
+              <button class="add" type="button" data-add data-id="rye" data-name="Житній на заквасці" data-price="85" aria-label="Додати в торбу: Житній на заквасці"><svg class="ico ico--plus" aria-hidden="true"><use href="#i-plus"/></svg><svg class="ico ico--check" aria-hidden="true"><use href="#i-check"/></svg></button>
+            </li>
+            <li class="item">
+              <div class="item__top"><h4 class="item__name">Пшеничний сільський</h4><span class="item__dots" aria-hidden="true"></span><p class="item__price">78 <small>грн</small></p></div>
+              <p class="item__desc"><span class="item__w">800 г</span>Хрумка скоринка, великі дірки, легка кислинка. Наш бестселер.</p>
+              <button class="add" type="button" data-add data-id="country" data-name="Пшеничний сільський" data-price="78" aria-label="Додати в торбу: Пшеничний сільський"><svg class="ico ico--plus" aria-hidden="true"><use href="#i-plus"/></svg><svg class="ico ico--check" aria-hidden="true"><use href="#i-check"/></svg></button>
+            </li>
+            <li class="item">
+              <div class="item__top"><h4 class="item__name">Багет класичний</h4><span class="item__dots" aria-hidden="true"></span><p class="item__price">42 <small>грн</small></p></div>
+              <p class="item__desc"><span class="item__w">250 г</span>Виходить о 7:00 і о 17:00. Ранковий зазвичай не доживає до обіду.</p>
+              <button class="add" type="button" data-add data-id="baguette" data-name="Багет класичний" data-price="42" aria-label="Додати в торбу: Багет класичний"><svg class="ico ico--plus" aria-hidden="true"><use href="#i-plus"/></svg><svg class="ico ico--check" aria-hidden="true"><use href="#i-check"/></svg></button>
+            </li>
+            <li class="item">
+              <div class="item__top"><h4 class="item__name">Чіабата</h4><span class="item__dots" aria-hidden="true"></span><p class="item__price">48 <small>грн</small></p></div>
+              <p class="item__desc"><span class="item__w">300 г</span>Дуже вологе тісто й оливкова олія. Для бутербродів і щоб вимочити соус із тарілки.</p>
+              <button class="add" type="button" data-add data-id="ciabatta" data-name="Чіабата" data-price="48" aria-label="Додати в торбу: Чіабата"><svg class="ico ico--plus" aria-hidden="true"><use href="#i-plus"/></svg><svg class="ico ico--check" aria-hidden="true"><use href="#i-check"/></svg></button>
+            </li>
+            <li class="item">
+              <div class="item__top"><h4 class="item__name">Цільнозерновий з насінням</h4><span class="item__dots" aria-hidden="true"></span><p class="item__price">92 <small>грн</small></p></div>
+              <p class="item__desc"><span class="item__w">750 г</span>Льон, соняшник, гарбуз і кунжут. Ситний: половини буханки вистачає на день.</p>
+              <button class="add" type="button" data-add data-id="seeded" data-name="Цільнозерновий з насінням" data-price="92" aria-label="Додати в торбу: Цільнозерновий з насінням"><svg class="ico ico--plus" aria-hidden="true"><use href="#i-plus"/></svg><svg class="ico ico--check" aria-hidden="true"><use href="#i-check"/></svg></button>
+            </li>
+            <li class="item">
+              <div class="item__top"><h4 class="item__name">Житньо-пшеничний із солодом</h4><span class="item__dots" aria-hidden="true"></span><p class="item__price">74 <small>грн</small></p></div>
+              <p class="item__desc"><span class="item__w">700 г</span>Темний, з карамельною ноткою. Найкраще смакує з салом і часником.</p>
+              <button class="add" type="button" data-add data-id="malt" data-name="Житньо-пшеничний із солодом" data-price="74" aria-label="Додати в торбу: Житньо-пшеничний із солодом"><svg class="ico ico--plus" aria-hidden="true"><use href="#i-plus"/></svg><svg class="ico ico--check" aria-hidden="true"><use href="#i-check"/></svg></button>
+            </li>
+            <li class="item">
+              <div class="item__top"><h4 class="item__name">Фокача з розмарином</h4><span class="item__dots" aria-hidden="true"></span><p class="item__price">65 <small>грн</small></p></div>
+              <p class="item__desc"><span class="item__w">350 г</span>Розмарин, морська сіль і щедро олії. Можна взяти половину.</p>
+              <button class="add" type="button" data-add data-id="focaccia" data-name="Фокача з розмарином" data-price="65" aria-label="Додати в торбу: Фокача з розмарином"><svg class="ico ico--plus" aria-hidden="true"><use href="#i-plus"/></svg><svg class="ico ico--check" aria-hidden="true"><use href="#i-check"/></svg></button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="panel" id="panel-pastry" role="tabpanel" aria-labelledby="tab-pastry" tabindex="0">
+          <h3 class="panel__title">Випічка</h3>
+          <ul class="items">
+            <li class="item">
+              <div class="item__top"><h4 class="item__name">Круасан вершковий</h4><span class="item__dots" aria-hidden="true"></span><p class="item__price">58 <small>грн</small></p></div>
+              <p class="item__desc"><span class="item__w">80 г</span>27 шарів масла 82%. Хрумтить так, що чути аж на вулиці.</p>
+              <button class="add" type="button" data-add data-id="croissant" data-name="Круасан вершковий" data-price="58" aria-label="Додати в торбу: Круасан вершковий"><svg class="ico ico--plus" aria-hidden="true"><use href="#i-plus"/></svg><svg class="ico ico--check" aria-hidden="true"><use href="#i-check"/></svg></button>
+            </li>
+            <li class="item">
+              <div class="item__top"><h4 class="item__name">Круасан з мигдалем</h4><span class="item__dots" aria-hidden="true"></span><p class="item__price">82 <small>грн</small></p></div>
+              <p class="item__desc"><span class="item__w">120 г</span>Чесно: це вчорашній круасан, якому дали друге життя з мигдальним кремом. І він став ще кращим.</p>
+              <button class="add" type="button" data-add data-id="almond" data-name="Круасан з мигдалем" data-price="82" aria-label="Додати в торбу: Круасан з мигдалем"><svg class="ico ico--plus" aria-hidden="true"><use href="#i-plus"/></svg><svg class="ico ico--check" aria-hidden="true"><use href="#i-check"/></svg></button>
+            </li>
+            <li class="item">
+              <div class="item__top"><h4 class="item__name">Булочка з корицею й кардамоном</h4><span class="item__dots" aria-hidden="true"></span><p class="item__price">54 <small>грн</small></p></div>
+              <p class="item__desc"><span class="item__w">110 г</span>Скандинавський вузол на нашому тісті. Виходить о 13:30.</p>
+              <button class="add" type="button" data-add data-id="cinnamon" data-name="Булочка з корицею" data-price="54" aria-label="Додати в торбу: Булочка з корицею й кардамоном"><svg class="ico ico--plus" aria-hidden="true"><use href="#i-plus"/></svg><svg class="ico ico--check" aria-hidden="true"><use href="#i-check"/></svg></button>
+            </li>
+            <li class="item">
+              <div class="item__top"><h4 class="item__name">Слойка з бринзою та шпинатом</h4><span class="item__dots" aria-hidden="true"></span><p class="item__price">62 <small>грн</small></p></div>
+              <p class="item__desc"><span class="item__w">130 г</span>Бринза, шпинат, трохи кропу. Солона, якраз до кави.</p>
+              <button class="add" type="button" data-add data-id="brynza" data-name="Слойка з бринзою" data-price="62" aria-label="Додати в торбу: Слойка з бринзою та шпинатом"><svg class="ico ico--plus" aria-hidden="true"><use href="#i-plus"/></svg><svg class="ico ico--check" aria-hidden="true"><use href="#i-check"/></svg></button>
+            </li>
+            <li class="item">
+              <div class="item__top"><h4 class="item__name">Пиріжок з вишнею</h4><span class="item__dots" aria-hidden="true"></span><p class="item__price">38 <small>грн</small></p></div>
+              <p class="item__desc"><span class="item__w">90 г</span>Печений, не смажений. Вишня з саду нашої пекарки Марти.</p>
+              <button class="add" type="button" data-add data-id="cherry" data-name="Пиріжок з вишнею" data-price="38" aria-label="Додати в торбу: Пиріжок з вишнею"><svg class="ico ico--plus" aria-hidden="true"><use href="#i-plus"/></svg><svg class="ico ico--check" aria-hidden="true"><use href="#i-check"/></svg></button>
+            </li>
+            <li class="item">
+              <div class="item__top"><h4 class="item__name">Бріош із ваніллю</h4><span class="item__dots" aria-hidden="true"></span><p class="item__price">46 <small>грн</small></p></div>
+              <p class="item__desc"><span class="item__w">100 г</span>М’який, масляний, із цукровою скоринкою зверху.</p>
+              <button class="add" type="button" data-add data-id="brioche" data-name="Бріош із ваніллю" data-price="46" aria-label="Додати в торбу: Бріош із ваніллю"><svg class="ico ico--plus" aria-hidden="true"><use href="#i-plus"/></svg><svg class="ico ico--check" aria-hidden="true"><use href="#i-check"/></svg></button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="panel" id="panel-sweet" role="tabpanel" aria-labelledby="tab-sweet" tabindex="0">
+          <h3 class="panel__title">До чаю</h3>
+          <ul class="items">
+            <li class="item">
+              <div class="item__top"><h4 class="item__name">Медівник</h4><span class="item__dots" aria-hidden="true"></span><p class="item__price">74 <small>грн</small></p></div>
+              <p class="item__desc"><span class="item__w">шматок</span>Вісім коржів і сметанний крем. Цілий — за попереднім замовленням.</p>
+              <button class="add" type="button" data-add data-id="honey" data-name="Медівник, шматок" data-price="74" aria-label="Додати в торбу: Медівник"><svg class="ico ico--plus" aria-hidden="true"><use href="#i-plus"/></svg><svg class="ico ico--check" aria-hidden="true"><use href="#i-check"/></svg></button>
+            </li>
+            <li class="item">
+              <div class="item__top"><h4 class="item__name">Маковий рулет</h4><span class="item__dots" aria-hidden="true"></span><p class="item__price">56 <small>грн</small></p></div>
+              <p class="item__desc"><span class="item__w">шматок</span>Маку більше, ніж тіста. Так і задумано.</p>
+              <button class="add" type="button" data-add data-id="poppy" data-name="Маковий рулет, шматок" data-price="56" aria-label="Додати в торбу: Маковий рулет"><svg class="ico ico--plus" aria-hidden="true"><use href="#i-plus"/></svg><svg class="ico ico--check" aria-hidden="true"><use href="#i-check"/></svg></button>
+            </li>
+            <li class="item">
+              <div class="item__top"><h4 class="item__name">Сирник запечений</h4><span class="item__dots" aria-hidden="true"></span><p class="item__price">68 <small>грн</small></p></div>
+              <p class="item__desc"><span class="item__w">шматок</span>Домашній сир, ваніль і цедра. Не чізкейк і не запіканка, просто добрий сирник.</p>
+              <button class="add" type="button" data-add data-id="syrnyk" data-name="Сирник запечений" data-price="68" aria-label="Додати в торбу: Сирник запечений"><svg class="ico ico--plus" aria-hidden="true"><use href="#i-plus"/></svg><svg class="ico ico--check" aria-hidden="true"><use href="#i-check"/></svg></button>
+            </li>
+            <li class="item">
+              <div class="item__top"><h4 class="item__name">Еклер із заварним кремом</h4><span class="item__dots" aria-hidden="true"></span><p class="item__price">64 <small>грн</small></p></div>
+              <p class="item__desc"><span class="item__w">1 шт.</span>Крем варимо щоранку, тож після обіду еклерів часто вже немає.</p>
+              <button class="add" type="button" data-add data-id="eclair" data-name="Еклер" data-price="64" aria-label="Додати в торбу: Еклер із заварним кремом"><svg class="ico ico--plus" aria-hidden="true"><use href="#i-plus"/></svg><svg class="ico ico--check" aria-hidden="true"><use href="#i-check"/></svg></button>
+            </li>
+            <li class="item">
+              <div class="item__top"><h4 class="item__name">Вівсяне печиво з шоколадом</h4><span class="item__dots" aria-hidden="true"></span><p class="item__price">28 <small>грн</small></p></div>
+              <p class="item__desc"><span class="item__w">1 шт.</span>Велике, хрумке по краях і м’яке всередині.</p>
+              <button class="add" type="button" data-add data-id="cookie" data-name="Вівсяне печиво" data-price="28" aria-label="Додати в торбу: Вівсяне печиво з шоколадом"><svg class="ico ico--plus" aria-hidden="true"><use href="#i-plus"/></svg><svg class="ico ico--check" aria-hidden="true"><use href="#i-check"/></svg></button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="panel" id="panel-drinks" role="tabpanel" aria-labelledby="tab-drinks" tabindex="0">
+          <h3 class="panel__title">Кава й напої</h3>
+          <ul class="items">
+            <li class="item item--plain"><div class="item__top"><h4 class="item__name">Еспресо</h4><span class="item__dots" aria-hidden="true"></span><p class="item__price">40 <small>грн</small></p></div><p class="item__desc"><span class="item__w">30 мл</span>Зерно обсмажують у Сумах, за дві вулиці від нас.</p></li>
+            <li class="item item--plain"><div class="item__top"><h4 class="item__name">Американо</h4><span class="item__dots" aria-hidden="true"></span><p class="item__price">45 <small>грн</small></p></div><p class="item__desc"><span class="item__w">250 мл</span>Можна з холодним молоком.</p></li>
+            <li class="item item--plain"><div class="item__top"><h4 class="item__name">Капучино</h4><span class="item__dots" aria-hidden="true"></span><p class="item__price">60 <small>грн</small></p></div><p class="item__desc"><span class="item__w">250 мл</span>Коров’яче, вівсяне або мигдальне молоко (+15 грн).</p></li>
+            <li class="item item--plain"><div class="item__top"><h4 class="item__name">Флет вайт</h4><span class="item__dots" aria-hidden="true"></span><p class="item__price">68 <small>грн</small></p></div><p class="item__desc"><span class="item__w">200 мл</span>Подвійний еспресо й тонка молочна піна.</p></li>
+            <li class="item item--plain"><div class="item__top"><h4 class="item__name">Какао на вершках</h4><span class="item__dots" aria-hidden="true"></span><p class="item__price">65 <small>грн</small></p></div><p class="item__desc"><span class="item__w">300 мл</span>Густе, майже як гарячий шоколад.</p></li>
+            <li class="item item--plain"><div class="item__top"><h4 class="item__name">Узвар домашній</h4><span class="item__dots" aria-hidden="true"></span><p class="item__price">40 <small>грн</small></p></div><p class="item__desc"><span class="item__w">300 мл</span>Сушені яблука й груші, без цукру. Теплий або холодний.</p></li>
+            <li class="item item--plain"><div class="item__top"><h4 class="item__name">Трав’яний чай</h4><span class="item__dots" aria-hidden="true"></span><p class="item__price">45 <small>грн</small></p></div><p class="item__desc"><span class="item__w">400 мл</span>Чебрець, м’ята, липа: що назбирали влітку.</p></li>
+          </ul>
+          <p class="panel__note">Напої готуємо тільки на місці, тому відкласти їх не вийде.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Передзамовлення ============ -->
+    <section class="sec order" id="order" aria-labelledby="order-title">
+      <div class="wrap order__grid">
+        <div class="order__intro">
+          <p class="kicker" data-reveal>Передзамовлення</p>
+          <h2 id="order-title" data-reveal>Відкладемо<br> на ваше ім’я</h2>
+          <p class="order__lede" data-reveal>Зберіть торбу з меню й оберіть час, а хліб заберете без черги. Платите на касі, передоплата не потрібна. Замовлення чекає вас ще 30 хвилин після обраного часу.</p>
+
+          <div class="bag" data-bag data-reveal>
+            <div class="bag__head">
+              <h3>Ваша торба</h3>
+              <button class="link" type="button" data-bag-clear hidden>очистити</button>
+            </div>
+            <ul class="bag__list" data-bag-list></ul>
+            <p class="bag__empty" data-bag-empty>Поки порожньо. Додайте щось із <a href="#menu">меню</a> кнопкою «+».</p>
+            <p class="bag__total"><span>Разом</span><b data-bag-total>0 грн</b></p>
+          </div>
+        </div>
+
+        <div class="order__side">
+          <form class="form" data-form novalidate data-reveal>
+            <div class="field">
+              <label for="f-name">Ім’я</label>
+              <input id="f-name" name="name" type="text" autocomplete="given-name" required minlength="2" aria-describedby="e-name">
+              <p class="field__err" id="e-name" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="f-phone">Телефон</label>
+              <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+380 __ ___ __ __" required aria-describedby="e-phone">
+              <p class="field__err" id="e-phone" aria-live="polite"></p>
+            </div>
+            <fieldset class="field">
+              <legend>Коли заберете</legend>
+              <div class="seg">
+                <input type="radio" name="day" id="d-today" value="today" checked>
+                <label for="d-today">Сьогодні</label>
+                <input type="radio" name="day" id="d-tomorrow" value="tomorrow">
+                <label for="d-tomorrow">Завтра</label>
+              </div>
+            </fieldset>
+            <div class="field">
+              <label for="f-time">О котрій</label>
+              <div class="select">
+                <select id="f-time" name="time" required aria-describedby="e-time" data-time></select>
+              </div>
+              <p class="field__err" id="e-time" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="f-note">Коментар <span class="field__opt">(за бажанням)</span></label>
+              <textarea id="f-note" name="note" rows="2" placeholder="Наприклад: наріжте житній, будь ласка"></textarea>
+            </div>
+            <p class="form__err" data-form-err aria-live="polite"></p>
+            <button class="btn btn--ink btn--wide" type="submit">Відкласти замовлення <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            <p class="form__note">Це демо: заявка нікуди не надсилається.</p>
+          </form>
+
+          <div class="receipt-slot" data-receipt-slot hidden>
+            <div class="receipt" data-receipt tabindex="-1"></div>
+            <button class="btn btn--line" type="button" data-receipt-new>Зібрати нову торбу</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Для закладів ============ -->
+    <section class="sec trade" id="trade" aria-labelledby="trade-title">
+      <div class="wrap">
+        <div class="trade__box" data-reveal>
+          <div class="trade__head">
+            <p class="kicker">Для закладів</p>
+            <h2 id="trade-title">Хліб для кав’ярень<br> і ресторанів</h2>
+            <p>Печемо для дванадцяти закладів у Сумах. Привеземо зранку, щоб ваш перший гість отримав тост, поки хліб іще теплий.</p>
+          </div>
+          <ul class="trade__list">
+            <li><b>від 10 шт.</b><span>щодня або за графіком</span></li>
+            <li><b>до 7:30</b><span>доставка по місту нашою машиною</span></li>
+            <li><b>0 грн</b><span>за пробний набір для шефа</span></li>
+          </ul>
+          <a class="btn btn--ink" href="https://t.me/okraiets_sumy" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-tg"/></svg>Написати в Telegram</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Команда ============ -->
+    <section class="sec team" id="team" aria-labelledby="team-title">
+      <div class="wrap">
+        <div class="split-head">
+          <h2 id="team-title" data-reveal>Хто пече</h2>
+          <p data-reveal>Нас семеро, але біля печі найчастіше ці троє.</p>
+        </div>
+        <ul class="team__list">
+          <li class="person" data-reveal>
+            <figure class="ph" style="--r: 3 / 4">
+              <!-- Заміна: <img src="img/team-marta.jpg" alt="Пекарка Марта" loading="lazy"> -->
+              <figcaption class="ph__cap">фото 3:4 · портрет Марти</figcaption>
+            </figure>
+            <h3>Марта Левченко</h3>
+            <p class="person__role mono">закваска · зміна з 4:00</p>
+            <p>Приходить першою і щоранку розмовляє з Галею. Каже, що закваска від цього краще піднімається.</p>
+          </li>
+          <li class="person" data-reveal>
+            <figure class="ph" style="--r: 3 / 4">
+              <!-- Заміна: <img src="img/team-illia.jpg" alt="Пекар Ілля" loading="lazy"> -->
+              <figcaption class="ph__cap">фото 3:4 · портрет Іллі</figcaption>
+            </figure>
+            <h3>Ілля Бондар</h3>
+            <p class="person__role mono">піч і багети</p>
+            <p>Готовність буханки визначає на звук: постукає по дну, і все зрозуміло. Термометр тримає для інспекторів.</p>
+          </li>
+          <li class="person" data-reveal>
+            <figure class="ph" style="--r: 3 / 4">
+              <!-- Заміна: <img src="img/team-sonia.jpg" alt="Кондитерка Соня" loading="lazy"> -->
+              <figcaption class="ph__cap">фото 3:4 · портрет Соні</figcaption>
+            </figure>
+            <h3>Соня Ткач</h3>
+            <p class="person__role mono">круасани й солодке</p>
+            <p>Двадцять сім шарів масла в кожному круасані. Вона перерахувала, тож можете не перевіряти.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ Галерея ============ -->
+    <section class="sec sheet" id="gallery" aria-labelledby="gallery-title" data-sheet>
+      <div class="wrap">
+        <div class="split-head">
+          <h2 id="gallery-title" data-reveal>Кадри<br> з пекарні</h2>
+          <p data-reveal>Плівка, яку ми знімаємо між замісами. Найкращий кадр обведено, як на старих контактних аркушах.</p>
+        </div>
+        <ul class="sheet__grid">
+          <li class="frame" data-reveal>
+            <figure class="ph ph--dark" style="--r: 4 / 3">
+              <!-- Заміна: <img src="img/gallery-1.jpg" alt="Перше замішування о четвертій ранку" loading="lazy"> -->
+              <figcaption class="ph__cap">4:00, перше замішування</figcaption>
+            </figure>
+            <span class="frame__n mono">01A ▸</span>
+            <svg class="frame__mark" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 6C40 1 80 2 95 8c4 28 3 60-2 86-30 4-62 4-87-1C1 66 2 32 9 4" pathLength="1"/></svg>
+          </li>
+          <li class="frame" data-reveal>
+            <figure class="ph ph--dark" style="--r: 4 / 3">
+              <!-- Заміна: <img src="img/gallery-2.jpg" alt="Кошики з житнім тістом" loading="lazy"> -->
+              <figcaption class="ph__cap">кошики з житнім тістом</figcaption>
+            </figure>
+            <span class="frame__n mono">02A ▸</span>
+            <svg class="frame__mark" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 6C40 1 80 2 95 8c4 28 3 60-2 86-30 4-62 4-87-1C1 66 2 32 9 4" pathLength="1"/></svg>
+          </li>
+          <li class="frame frame--pick" data-reveal>
+            <figure class="ph ph--dark" style="--r: 4 / 3">
+              <!-- Заміна: <img src="img/gallery-3.jpg" alt="Надрізи лезом на буханці" loading="lazy"> -->
+              <figcaption class="ph__cap">надрізи лезом</figcaption>
+            </figure>
+            <span class="frame__n mono">03A ▸</span>
+            <svg class="frame__mark" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 6C40 1 80 2 95 8c4 28 3 60-2 86-30 4-62 4-87-1C1 66 2 32 9 4" pathLength="1"/></svg>
+          </li>
+          <li class="frame" data-reveal>
+            <figure class="ph ph--dark" style="--r: 4 / 3">
+              <!-- Заміна: <img src="img/gallery-4.jpg" alt="Відкрита піч, 250 градусів" loading="lazy"> -->
+              <figcaption class="ph__cap">піч, 250 °C</figcaption>
+            </figure>
+            <span class="frame__n mono">04A ▸</span>
+            <svg class="frame__mark" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 6C40 1 80 2 95 8c4 28 3 60-2 86-30 4-62 4-87-1C1 66 2 32 9 4" pathLength="1"/></svg>
+          </li>
+          <li class="frame" data-reveal>
+            <figure class="ph ph--dark" style="--r: 4 / 3">
+              <!-- Заміна: <img src="img/gallery-5.jpg" alt="Повна полиця о сьомій ранку" loading="lazy"> -->
+              <figcaption class="ph__cap">полиця о 7:05</figcaption>
+            </figure>
+            <span class="frame__n mono">05A ▸</span>
+            <svg class="frame__mark" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 6C40 1 80 2 95 8c4 28 3 60-2 86-30 4-62 4-87-1C1 66 2 32 9 4" pathLength="1"/></svg>
+          </li>
+          <li class="frame" data-reveal>
+            <figure class="ph ph--dark" style="--r: 4 / 3">
+              <!-- Заміна: <img src="img/gallery-6.jpg" alt="Суботня черга біля входу" loading="lazy"> -->
+              <figcaption class="ph__cap">суботня черга</figcaption>
+            </figure>
+            <span class="frame__n mono">06A ▸</span>
+            <svg class="frame__mark" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M8 6C40 1 80 2 95 8c4 28 3 60-2 86-30 4-62 4-87-1C1 66 2 32 9 4" pathLength="1"/></svg>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ Відгуки ============ -->
+    <section class="sec reviews" id="reviews" aria-labelledby="reviews-title">
+      <div class="wrap">
+        <div class="split-head">
+          <h2 id="reviews-title" data-reveal>Що кажуть<br> сусіди</h2>
+          <p data-reveal>Записки, які нам лишають на касі або пишуть в Instagram. Публікуємо з дозволу авторів.</p>
+        </div>
+        <ul class="notes" data-notes>
+          <li class="note" style="--rot: -1.6deg">
+            <blockquote><p>Беру житній щосуботи вже третій рік. Чоловік спершу казав, що він «кислий», а тепер сам ходить по нього о сьомій.</p></blockquote>
+            <p class="note__who">Олена<span>живе через дорогу</span></p>
+          </li>
+          <li class="note note--butter" style="--rot: 1.2deg">
+            <blockquote><p>Круасан тут розсипається так, що крихти на куртці я знаходжу аж до обіду. Це комплімент.</p></blockquote>
+            <p class="note__who">Дмитро<span>студент СумДУ</span></p>
+          </li>
+          <li class="note note--ink" style="--rot: -0.8deg">
+            <blockquote><p>Замовила через сайт на 7:30. Пакет уже чекав із моїм ім’ям, і хліб був іще теплий. Дрібниця, а приємно.</p></blockquote>
+            <p class="note__who">Ірина<span>лікарка, нічні зміни</span></p>
+          </li>
+          <li class="note" style="--rot: 1.8deg">
+            <blockquote><p>Привів київських друзів на екскурсію по Сумах. Найбільше їм запам’яталась фокача з розмарином. За Альтанку навіть трохи образливо.</p></blockquote>
+            <p class="note__who">Андрій<span>екскурсовод-аматор</span></p>
+          </li>
+          <li class="note note--butter" style="--rot: -1.2deg">
+            <blockquote><p>Пес отримує тут сухарик, тому щоранку тягне мене на Петропавлівську. Довелось полюбити бріош.</p></blockquote>
+            <p class="note__who">Катерина й Бублик<span>постійні гості</span></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ Питання ============ -->
+    <section class="sec faq" id="faq" aria-labelledby="faq-title">
+      <div class="wrap faq__grid">
+        <div class="faq__head">
+          <h2 id="faq-title" data-reveal>Часті<br> питання</h2>
+          <p data-reveal>Не знайшли відповіді? Напишіть у <a href="https://t.me/okraiets_sumy" target="_blank" rel="noopener">Telegram</a>, відповідаємо між партіями.</p>
+        </div>
+        <div class="faq__list" data-faq>
+          <details>
+            <summary>Чи можна відкласти хліб на завтра?<span class="faq__x" aria-hidden="true"></span></summary>
+            <div class="faq__a"><p>Так. Зберіть торбу на сайті, напишіть у Telegram або подзвоніть до 19:00, і ми відкладемо замовлення на ваше ім’я. Передоплата не потрібна.</p></div>
+          </details>
+          <details>
+            <summary>Чи є хліб без глютену?<span class="faq__x" aria-hidden="true"></span></summary>
+            <div class="faq__a"><p>Чесно — ні. Піч у нас одна, а борошно буквально всюди, тому гарантувати відсутність глютену ми не можемо. У 100% житньому його менше, але при целіакії такий хліб однаково не підходить.</p></div>
+          </details>
+          <details>
+            <summary>Скільки зберігається хліб на заквасці?<span class="faq__x" aria-hidden="true"></span></summary>
+            <div class="faq__a"><p>Житній — до тижня, пшеничний — 3–4 дні в льняному мішечку або паперовому пакеті. Не тримайте його в поліетилені чи холодильнику. Нарізаний хліб можна заморозити на місяць.</p></div>
+          </details>
+          <details>
+            <summary>Можна прийти з собакою?<span class="faq__x" aria-hidden="true"></span></summary>
+            <div class="faq__a"><p>Можна. На касі для собак лежать безкоштовні сухарики без солі.</p></div>
+          </details>
+          <details>
+            <summary>Чи є доставка?<span class="faq__x" aria-hidden="true"></span></summary>
+            <div class="faq__a"><p>Для приватних замовлень власної доставки немає: можемо передати торбу таксі за ваш рахунок. Кав’ярням і ресторанам возимо хліб самі, деталі в розділі <a href="#trade">«Для закладів»</a>.</p></div>
+          </details>
+          <details>
+            <summary>Ви печете торти на замовлення?<span class="faq__x" aria-hidden="true"></span></summary>
+            <div class="faq__a"><p>Тортів не робимо, ми все-таки про хліб. Але цілий медівник або маковий рулет можна замовити за добу.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Контакти ============ -->
+    <section class="sec contacts" id="contacts" aria-labelledby="contacts-title">
+      <div class="wrap contacts__grid">
+        <div class="contacts__info">
+          <p class="kicker" data-reveal>Контакти</p>
+          <h2 id="contacts-title" data-reveal>Як нас<br> знайти</h2>
+
+          <div class="addr" data-reveal>
+            <p class="addr__main">вул. Петропавлівська, 58<br>Суми</p>
+            <p class="addr__hint">Вхід із двору. Шукайте старий годинник над дверима: він досі ходить.</p>
+          </div>
+
+          <dl class="hours" data-reveal>
+            <div><dt>Щодня</dt><dd>07:00–20:00</dd></div>
+            <div><dt>Перший багет</dt><dd>07:00</dd></div>
+            <div><dt>Вечірній багет</dt><dd>17:00</dd></div>
+          </dl>
+
+          <p class="status status--big" data-status data-reveal>
+            <span class="status__dot" aria-hidden="true"></span>
+            <span data-status-text>Щодня 07:00–20:00</span>
+          </p>
+
+          <div class="contacts__btns" data-reveal>
+            <a class="btn btn--ink" href="tel:+380500000000"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Подзвонити</a>
+            <a class="btn btn--line" href="https://t.me/okraiets_sumy" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-tg"/></svg>Telegram</a>
+            <a class="btn btn--line" href="https://instagram.com/okraiets.sumy" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg>Instagram</a>
+          </div>
+          <p class="contacts__phone mono" data-reveal><a href="tel:+380500000000">+380 50 000 00 00</a> · @okraiets_sumy</p>
+        </div>
+
+        <div class="map" data-reveal="clip">
+          <!-- Заміна: сюди можна вставити <iframe> з Google Maps замість схеми -->
+          <svg class="map__svg" viewBox="0 0 400 320" role="img" aria-label="Схема: пекарня на вулиці Петропавлівській">
+            <rect width="400" height="320" class="map__bg"/>
+            <g class="map__blocks">
+              <rect x="18" y="20" width="110" height="70" rx="3"/><rect x="150" y="20" width="96" height="70" rx="3"/><rect x="268" y="20" width="114" height="70" rx="3"/>
+              <rect x="18" y="122" width="110" height="78" rx="3"/><rect x="268" y="122" width="114" height="78" rx="3"/>
+              <rect x="18" y="232" width="110" height="70" rx="3"/><rect x="150" y="232" width="96" height="70" rx="3"/><rect x="268" y="232" width="114" height="70" rx="3"/>
+            </g>
+            <path class="map__park" d="M154 126h88v70h-88z"/>
+            <path class="map__route" d="M60 320V216h197V118" pathLength="1"/>
+            <text class="map__label" x="24" y="110">вул. Петропавлівська</text>
+            <text class="map__label map__label--sm" x="198" y="164" text-anchor="middle">сквер</text>
+            <g class="map__pin" transform="translate(257 106)">
+              <circle class="map__pulse" r="12"/>
+              <circle class="map__dot" r="7"/>
+            </g>
+          </svg>
+          <a class="map__link" href="https://www.google.com/maps/search/?api=1&amp;query=%D0%A1%D1%83%D0%BC%D0%B8%2C%20%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F%20%D0%9F%D0%B5%D1%82%D1%80%D0%BE%D0%BF%D0%B0%D0%B2%D0%BB%D1%96%D0%B2%D1%81%D1%8C%D0%BA%D0%B0" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Відкрити на мапі</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Футер ============ -->
+  <footer class="foot" data-foot>
+    <div class="wrap">
+      <div class="foot__top">
+        <p class="foot__about">Окраєць — пекарня на заквасці в Сумах. Печемо повільно, продаємо гарячим.</p>
+        <nav class="foot__nav" aria-label="Навігація у футері">
+          <a href="#menu">Меню</a>
+          <a href="#oven">Розклад печі</a>
+          <a href="#order">Передзамовлення</a>
+          <a href="#trade">Для закладів</a>
+          <a href="#faq">Питання</a>
+        </nav>
+        <div class="foot__reach">
+          <a href="tel:+380500000000">+380 50 000 00 00</a>
+          <a href="https://t.me/okraiets_sumy" target="_blank" rel="noopener">Telegram</a>
+          <a href="https://instagram.com/okraiets.sumy" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+      <p class="foot__word" aria-hidden="true" data-word>окраєць</p>
+      <div class="foot__bottom">
+        <p>© <span data-year>2026</span> Окраєць, Суми</p>
+        <p>Демо-проєкт для портфоліо: бренд, меню, ціни й контакти вигадані.</p>
+        <a href="#top">Нагору ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Швидкий зв’язок на телефоні -->
+  <nav class="quick" aria-label="Швидкий зв’язок" data-quick>
+    <a class="quick__call" href="tel:+380500000000"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Подзвонити</a>
+    <a href="https://t.me/okraiets_sumy" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-tg"/></svg>Telegram</a>
+    <a href="https://instagram.com/okraiets.sumy" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg>Instagram</a>
+  </nav>
+
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+</body>
+</html>
